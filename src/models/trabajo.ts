@@ -1,7 +1,7 @@
 export interface Trabajo {
     idTrabajo: number;
     idCliente: number;
-    idTransportista: number;
+    idTransportista?: number;
     lugarOrigen: string;
 	lugarDestino: string;
 	fechaRecogida: Date;

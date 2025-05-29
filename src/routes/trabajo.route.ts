@@ -13,4 +13,23 @@ router.get('/', (_, rs) => {
         })
 });
 
+router.post('/', (req, res) => {
+  TrabajoController.createTrabajo(req.body)
+    .then(() => res.status(201).json({ mensaje: 'Trabajo creado' }))
+    .catch(e => res.status(500).json(e));
+});
+
+router.put('/:id', (req, res) => {
+  TrabajoController.updateTrabajo(Number(req.params.id), req.body)
+    .then(() => res.json({ mensaje: 'Trabajo actualizado' }))
+    .catch(e => res.status(500).json(e));
+});
+
+router.delete('/:id', (req, res) => {
+  TrabajoController.deleteTrabajo(Number(req.params.id))
+    .then(() => res.json({ mensaje: 'Trabajo eliminado' }))
+    .catch(e => res.status(500).json(e));
+});
+
+
 export default router;
